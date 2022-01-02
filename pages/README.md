@@ -1,22 +1,21 @@
 # 페이지 소개
 
-**-메인페이지**
+**-시작화면**
   
-![캡처](https://github.com/tekies09/BoredPeanut/blob/master/img/BPImages.JPG)
+![캡처](https://github.com/tekies09/BettingRace/blob/main/image/intro.jpg)
   
-**-로그인 및 회원가입과 이메일 연동**
+**-로그인 및 회원가입과 세팅**
   
-![캡처](https://github.com/tekies09/BoredPeanut/blob/master/img/login3.JPG)
+![캡처](https://github.com/tekies09/BettingRace/blob/main/image/intro2.jpg)
+![캡처](https://github.com/tekies09/BettingRace/blob/main/image/intro3.jpg)
+![캡처](https://github.com/tekies09/BettingRace/blob/main/image/intro1.jpg)
   
-**-심리테스트**
+**-게임 로비**
   
-![캡처](https://github.com/tekies09/BoredPeanut/blob/master/img/test3.JPG)
+![캡처](https://github.com/tekies09/BettingRace/blob/main/image/lobby.jpg)
   
-**-3종 게임**
+**-게임 방**
   
-![캡처](https://github.com/tekies09/BoredPeanut/blob/master/img/game3.JPG)
+![캡처](https://github.com/tekies09/BettingRace/blob/main/image/Room.JPG)
 
-  
-**-다이어리 및 제작자 정보**
-  
-  ![캡처](https://github.com/tekies09/BoredPeanut/blob/master/img/diary3.JPG)
+
