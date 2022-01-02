@@ -1,0 +1,8 @@
+E:\BatServerVer0.1\BatServerVer1\BatServerVer1\obj\Release\BatServerVer1.csprojAssemblyReference.cache
+E:\BatServerVer0.1\BatServerVer1\BatServerVer1\obj\Release\BatServerVer1.csproj.CoreCompileInputs.cache
+E:\batserverexe\BatServerVer1.exe.config
+E:\batserverexe\BatServerVer1.exe
+E:\batserverexe\BatServerVer1.pdb
+E:\BatServerVer0.1\BatServerVer1\BatServerVer1\obj\Release\BatServerVer1.csproj.CopyComplete
+E:\BatServerVer0.1\BatServerVer1\BatServerVer1\obj\Release\BatServerVer1.exe
+E:\BatServerVer0.1\BatServerVer1\BatServerVer1\obj\Release\BatServerVer1.pdb
