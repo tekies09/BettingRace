@@ -1,0 +1,30 @@
+1. 중복 아이디 검사
+Check ☆ id  // 여기에 connectnumber 을 안넣는 이유 : 사용자가 어떤 connectnumber를 이용할줄모름
+결과 : 중복되는 아이디일 경우 반환값 noneunique //    중복되지 않는다면 unique로 반환이 됨  
+테스트 결과 정상적으로 작동함
+
+2. 아이디 로그인
+Login ☆ id ★password //  connectnumber을 안넣는 이유 : 사용자가 어떤 connectnumber를 이용할줄모름
+			 로그인 하면 자동적으로 connectnumber를 찾아서 배당해줌
+결과 :  login이 성공을 한다면 connectnumber 가반환 
+
+3. 회원 가입
+Register ☆ id ★ password // connectnumber 안넣는 이유는 1번과 동일
+결과 : 회원 가입 성공시에 success 실패시 fail 이라고 반환이 됨
+
+4. 본인의 랭크 
+MyRank ☆ connectnumber 
+반환 결과 : bellpoint ★ gamewin ★ gamelose ★
+MyRank☆승★패★벨포인트
+
+5. Top5 랭크
+Ranking
+Ranking☆닉네임★승★패★벨포인트☆닉네임★승★패★벨포인트☆닉네임★승★패★벨포인트☆닉네임★승★패★벨포인트☆닉네임★승★패★벨포인트
+
+6. 채팅
+AllChat☆아이디★할말
+ex) AllChat☆Tekies★승
+
+
+
+

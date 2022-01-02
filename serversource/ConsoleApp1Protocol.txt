@@ -1,0 +1,142 @@
+ConsoleApp1 메뉴얼
+
+1. 중복 아이디 검사
+unique ☆ id  // 여기에 connectnumber 을 안넣는 이유 : 사용자가 어떤 connectnumber를 이용할줄모름
+결과 : 중복되는 아이디일 경우 반환값 noneunique //    중복되지 않는다면 unique로 반환이 됨  
+테스트 결과 정상적으로 작동함
+
+2. 아이디 로그인
+login ☆ id ★password //  connectnumber을 안넣는 이유 : 사용자가 어떤 connectnumber를 이용할줄모름
+			 로그인 하면 자동적으로 connectnumber를 찾아서 배당해줌
+결과 :  login이 성공을 한다면 id  ★ password ★ usernumber ★ connectnumber ★ phonenumber ★ gender ★ regdate 
+이렇게 값을 받아옴 아이디가 없는 아이디일 경우 or 아이디가 있지만 비밀번호가 일치하지 않아도 loginFail 로 반환이 됨
+
+3. 회원 가입
+signup ☆ id ★ password ★ phonenumber ★ gender // connectnumber 안넣는 이유는 1번과 동일
+결과 : 회원 가입 성공시에 success 실패시 fail 이라고 반환이 됨
+		 실패하는 경우는 id가 중복인데 넣었거나 혹은 phonenumber가 중복이 되서 fail처리함  
+
+4. 본인의 랭크 
+myrank ☆ connectnumber ★ gamenumber 
+반환 결과 : bellpoint ★ gamewin ★ gamelose ★
+
+5. 랭킹 top5 가져오기
+rank ☆ gamenumber 
+반환 결과 기준 : bellpoint가 높은걸 먼저 bellpoint가 동률이라면 승의 수가 더 많은것을 , 그리고 그것마저 동률이라면 usernumber 순서
+반환결과  :  id ★ bellpoint ★ gamewin ★ gamelose ☆ // id ★bellpoint ★ gamewin ★ gamelose ☆ //
+이런식으로 5명의 결과를 가져와줌  // 만약 가입인원이 5명이 아닐경우 ( ex : 4명 ) 4명만의 정보를 가져와줌
+
+6. 방리스트 가져오기 (limitcount은 방 인원제한임 playercount는 현재 그방의 인원수 ) 
+rlist ☆ gamenumber
+반환결과 : 방이 없는 경우 NotCreated를 반환해줌 // 비밀방이 아닐경우 password칸이 비어있음 
+roomnumber ★ roomname ★ password ★ limitcount ★ roomstatus ★  gamenumber ★ playercount ☆ roomnumber ★ roomname ★ password ★ limitcount ★ roomstatus ★  gamenumber ★ playercount ☆ 
+이런식으로 계속 갔다줌 
+
+
+7. 방만들기 (limitcount은 방 인원제한임 ) 
+nroom ☆ connectnumber ★ roomname ★ password ★ limitcount ★ gamenumber 
+※ 주의점 방의 비밀번호를 없이 설정하려면 password 를 공백으로 보내주세요 
+ex ) connectnumber : 1 , 방이름: 어서오세요 , 비밀번호 x , 방인원제한 4 , 게임넘버 : 1  -> nroom ☆ 1 ★ 어서오세요 ★★ 4 ★ 1 
+반환값 : roomnumber ★ roomname ★ password ★  limitcount  ★ gamenumber 으로 반환해줌
+
+8. 방들어가기  (비밀방이 아닌방을 들어갈때에도 공백으로 보내주세요 )
+join ☆ connectnumber ★ roomnumber ★ password
+반환값 : roomnumber ★ roomname ★ password ★  limitcount ★gamenumber ★ player1'snickname ★player2'snickname  
+설명 : player1's nickname ,player2'snickname 이 뭐냐면 각 방에 있는 사람의 아이디를 가져옴 2명있으면 2개를 가져오고                   
+방에 1명이 있으면 1명만 가져옴 
+----- player1이 방장임 
+ex) 방에 1명인 경우 -> 1 ★ 어서오세요 ★★ 4 ★ 1 ★ moontek
+ex) 방에 2명인 경우 ->  1 ★ 어서오세요 ★★ 4 ★ 1 ★ moontek ★ moontek09
+이런식으로.. 
+그리고 이미 방에 있는데 다른 유저가 들어올경우 in★moontek 이런식으로 플레이어에게 알려준다.
+방이 꽉차거나 사라졌을경우 unable을 반환해줌 
+
+9.랜덤방에 들어가기 
+rand ☆ connectnumber ★ gamenumber
+반환값은 join과 일치 그리고 방이 없는데 랜덤을 누르는 경우도 unable을 반환해줌 
+
+10. 방 나가기  
+exit ☆ connectnumber ★ roomnumber 
+반환값 : out ★ usernickname    // 방안에 다른 사람들에게도 out ★ usernickname 으로 반환해준다.
+단 방장이 나갈경우 out ★ usernickname1 ★ master ★ usernickname2 
+usernickname1이 방장이고 usernickname2가 다음 방장을 의미한다. // 본인이 방장이고 그때 방을 나가는경우는 다음 방장이없으므로
+그냥 out ★ usernickname  으로 반환을 해준다.  
+
+11. 게임시작
+racestart ☆ connectnumber ★ roomnumber
+반환값 : 방의 인원이 4명 미만일시 fail을 반환
+4명 이상일경우 'GameStart'를 방의 인원에게 모두 송신후에
+토큰 ★ 토큰 형식으로 본인이 게임에서응원할 토큰을 받음 (처음 게임 순서는 입장순서로 세팅)
+그리고 첫번째 플레이어 (방장)  시작차례이므로
+turn ★ nickname 으로 전체적으로 한번더 보내줌 
+
+예시
+GameStart
+1★3
+turn ★ moon
+-------------------------------------------------------------------
+토큰 정리 ! /  좀비 :  0 /  미이라 : 1 /  구미호  : 2 / 뱀파이어 : 3 / 강시 : 4   
+
+12.  토큰 포기 : 토큰포기를 누른다면 다음라운드의 마지막차례가됨  그리고 턴이 끝났기떄문에 다음턴이 누군지알려줌 
+/ 마지막턴일경우 결과합산 진행
+tokengiveup ☆  connectnumber ★ roomnumber
+// 누군가 이미토큰포기를 했다면 비활성화로 막아주셈..
+
+반환값 
+giveup ★ user
+turn ★ NextTurnUserNickName
+
+13. 토큰 뽑기  
+pulltoken ☆ connectnumber ★ roomnumber
+
+반환결과 
+usernickname ★ tokennumber1 ★ tokennumber2 ★ tokennumber3 ★
+를 모든방에 쏴줌
+
+14. 토큰 배치 
+statoken ☆ connectnumber ★ roomnumber ★ 토큰배치  
+
+구역 △ 토큰번호 △ 개수 ▲
+토큰 배치 형태는△로 끊었음 (구역은 1,2,3 이라가정 ,토큰번호는 위에적음, 배팅개수)
+1△1△2 => 1번구역 미이라 2개 배치 
+여러개일경우 
+1△1△2▲2△1△1 -> 1번구역 미이라 2개 2번구역 미이라 1개 
+1△1△2▲1△2△1 -> 1번구역 미이라 2개 1번구역 구미호 1개 
+이런식으로 보내주면됩니다. 반환값은 베팅이 된 구역의 값만 반환을 해준다
+얘를들어 1구역에 구미호2 2구역 미이라1 3구역 강시4 구미호1 일경우
+1△2△2▲ 2△1△1▲ 3△4△4▲ 3△2△1▲ 이렇게 전송
+ 
+
+15. 라운드 종료 
+모든 플레이어의 턴이 끝났다면 라운드가 끝난다
+RoundEnd라고 1차 송신
+3구역에 있는 말들을 계산하여   count는 움직일 칸수를 의미하고 13칸을 다 움직였다면 게임은 종료하게 된다.
+move ★ tokennumber ★ count  반환
+2구역도마찬가지..
+1구역까지보내고 게임이 끝나지않았다면
+
+RoundStart를 송신받는다.
+그리고 다시 라운드 시작으로 
+첫번째 시작유저는 
+turn ★ usernickname 으로 모두에게 송신 그리고 다시 그유저부터 토큰포기 혹은 토큰뽑기를 진행하면ㄷ ㅚㄴ다
+
+16. 게임종료  토큰하나가 결승선에 도착한경우 
+GameEnd를 송신받음 
+게임 진행 결과 (토큰들의 점수)  
+first ★ firstToken ★ secondtoken ★
+공동 2등이 여러명 일경우 
+first ★ firstToken ★ secondtoken1 ★ secondtoken2 ★
+게임 결과
+tokens ★ connectusernumber1 ★ tokennumber1 ★ tokennumber2 
+result ★ winner ★ winusernickname ★ loser ★ loseusernickname
+여러명일경우
+result ★ winner ★ winusernickname1 ★ winusernickname2 ★ loser ★ loseusernickname1 ★ loseusernickname2
+이런식으로 결과를 수신받고 끝남
+
+
+ 17 게임레디
+ready ☆ connectnumber ★ roomnumber
+반환값 방에 있는전부에게 
+usernickname ★ ready 
+usernickname ★ unready
+반환 
