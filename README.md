@@ -1,4 +1,4 @@
-# happyhouse-hmt [혜택조]
+# BettingRace 
 ## 목차
   - [개요](#개요) 
   - [일정](#일정) 
