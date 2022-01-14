@@ -42,7 +42,7 @@
   
 ![캡처](https://github.com/tekies09/BettingRace/blob/main/image/Room.JPG)
 
-- [자세히](https://github.com/tekies09/Happyhouse/tree/main/pages)
+- [자세히](https://github.com/tekies09/BettingRace/tree/main/pages)
 
 ## 기술스택및환경
 
